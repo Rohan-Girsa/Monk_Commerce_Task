@@ -113,7 +113,7 @@ public class CouponServiceImpl implements CouponService {
     }
 
     private boolean isBxGyApplicable(Cart cart, Coupon coupon) {
-        for (BuyProduct buyProduct : coupon.getCouponDetails().getBuyProduct()) {
+        for (BuyProduct buyProduct : coupon.getCouponDetails().getBuyProducts()) {
             boolean matches = cart.getCartItems().stream()
                     .anyMatch(item -> item.getProductId().equals(buyProduct.getProductId())
                             && item.getQuantity() >= buyProduct.getQuantity());
@@ -133,7 +133,7 @@ public class CouponServiceImpl implements CouponService {
     }
 
     private void applyBxGyDiscount(Cart cart, Coupon coupon) {
-        for (GetProduct getProduct : coupon.getCouponDetails().getGetProduct()) {
+        for (GetProduct getProduct : coupon.getCouponDetails().getGetProducts()) {
             cart.getCartItems().stream()
                     .filter(item -> item.getProductId().equals(getProduct.getProductId()))
                     .findFirst()
