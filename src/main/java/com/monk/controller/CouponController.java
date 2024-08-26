@@ -33,19 +33,19 @@ public class CouponController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ResponseWrapper> getCouponById(@PathVariable String id) throws CustomCouponException{
+    public ResponseEntity<ResponseWrapper> getCouponById(@PathVariable("id") String id) throws CustomCouponException{
         ResponseWrapper response = couponService.getCouponById(id);
         return ResponseEntity.ok(response);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ResponseWrapper> updateCoupon(@PathVariable String id, @RequestBody Coupon coupon) throws CustomCouponException, InvalidInputException{
+    public ResponseEntity<ResponseWrapper> updateCoupon(@PathVariable("id") String id, @RequestBody Coupon coupon) throws CustomCouponException, InvalidInputException{
         ResponseWrapper response = couponService.updateCoupon(id, coupon);
         return ResponseEntity.ok(response);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<ResponseWrapper> deleteCoupon(@PathVariable String id) throws CustomCouponException{
+    public ResponseEntity<ResponseWrapper> deleteCoupon(@PathVariable("id") String id) throws CustomCouponException{
         ResponseWrapper response = couponService.deleteCouponById(id);
         return ResponseEntity.ok(response);
     }
@@ -57,7 +57,7 @@ public class CouponController {
     }
 
     @PostMapping("/apply-coupon/{id}")
-    public ResponseEntity<ResponseWrapper> applyCoupon(@PathVariable String id, @RequestBody Cart cart) throws CustomCouponException{
+    public ResponseEntity<ResponseWrapper> applyCoupon(@PathVariable("id") String id, @RequestBody Cart cart) throws CustomCouponException{
         ResponseWrapper response = couponService.applyCoupon(cart, id);
         return ResponseEntity.ok(response);
     }
