@@ -67,7 +67,7 @@ Endpoints
      URL Params:
      Required: id=[string]
 
-Known Issues
+Known Issues:
   Apply Coupon Not Working
   Issue: The applyCoupon method sometimes doesn't apply discounts correctly.
   Possible Problems:
